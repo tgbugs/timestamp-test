@@ -4,7 +4,7 @@
          racket/system)
 
 (define now (current-seconds))
-(define template "https://github.com/tgbugs/timestamp-test/blob/master@{~a}/test-file")
+(define template "https://github.com/tgbugs/timestamp-test/blob/master@{~a}/test-file.md")
 (define (update-file)
   (write-string (string-join (for/list ([i (range 100)]) (format template (+ now i))) "  \n")))
 (with-output-to-file "test-file.md" #:exists 'replace update-file)
